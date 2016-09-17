@@ -1,6 +1,10 @@
 import gulp from 'gulp';
-import shell from 'gulp-shell';
-import sass from 'gulp-sass';
-import browserify from 'browserify';
-import browsersync from 'browsersync';
+import plugins from 'gulp-load-plugins';
+import fs from 'fs';
 
+const tasksPath = './tasks/';
+const taskList = fs.readdirSync(tasksPath);
+
+taskList.forEach((tasksFile) =>{
+  require(tasksPath + tasksFile)(gulp, plugins());
+});
