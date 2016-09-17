@@ -1,0 +1,31 @@
+{
+  "name": "conoitalia",
+  "version": "1.0.0",
+  "description": "backend de closet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xzitlou/Slim-Rest-Boilerplate.git"
+  },
+  "author": "backenddecloset",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xzitlou/Slim-Rest-Boilerplate/issues"
+  },
+  "homepage": "https://github.com/xzitlou/Slim-Rest-Boilerplate#readme",
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-register": "^6.14.0",
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.16.0",
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-shell": "^0.5.2",
+    "watchify": "^3.7.0"
+  }
+}
