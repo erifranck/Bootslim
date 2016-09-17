@@ -1,0 +1,21 @@
+{
+  "name": "conoitalia",
+  "description": "backend de closet",
+  "main": "index.js",
+  "authors": [
+    "backenddecloset"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/xzitlou/Slim-Rest-Boilerplate",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootswatch-scss": "^3.2.0",
+    "bootstrap-sass": "^3.3.7"
+  }
+}

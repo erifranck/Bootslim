@@ -4,7 +4,11 @@ import fs from 'fs';
 
 const tasksPath = './tasks/';
 const taskList = fs.readdirSync(tasksPath);
+const onError = function(err) {
+  console.log(err);
+  this.end();
+};
 
 taskList.forEach((tasksFile) =>{
-  require(tasksPath + tasksFile)(gulp, plugins());
+  require(tasksPath + tasksFile)(gulp, plugins(), onError);
 });
