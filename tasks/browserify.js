@@ -6,6 +6,6 @@ export default (gulp, $, onError) => {
       extensions: ['.js', '.jsx']
     }).on('error', onError))
       .pipe($.notify('success browserify'))
-      .pipe(gulp.dest('resources/static/js'))
+      .pipe(gulp.dest('public/static/js'))
   );
 }
