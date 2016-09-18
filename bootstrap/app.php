@@ -7,7 +7,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 require __DIR__ . '/router.php';
 
-require __DIR__ . '/../app/middleware.php';
+require __DIR__ . '/../app/Middleware/AuthMiddleware.php';
 
 require __DIR__ . '/mapControllers.php';
 
