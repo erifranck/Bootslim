@@ -30,9 +30,18 @@ $jsonApiHelper = new JsonApiHelper\JsonApiHelper($app->getContainer());
 $jsonApiHelper->registerResponseResult();
 $jsonApiHelper->registerErrorHandlers();
 
+/*
+ *--------------------------------------------------------
+ *--------------------------------------------------------
+ *------Api JWT Token Authentication Middleware-----------
+ *--------------------------------------------------------
+ *--------------------------------------------------------
+ */
+
+/*
 $app->add(new \Slim\Middleware\JwtAuthentication([
     "attribute" => "jwt",
-    "path" => "/api", /* or ["/api", "/admin"] */
+    "path" => "/api",
     "secret" => "supersecretkeyyoushouldnotcommittogithub",
     "callback" => function ($request, $response, $arguments) use ($container) {
         $container["jwt"] = $arguments["decoded"];
@@ -45,7 +54,7 @@ $app->add(new \Slim\Middleware\JwtAuthentication([
             ->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
     }
 ]));
-
+*/
 $container = $app -> getContainer();
 
 $capsule = new \Illuminate\Database\Capsule\Manager;
