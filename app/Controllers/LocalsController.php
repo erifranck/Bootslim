@@ -9,7 +9,7 @@ class LocalsController extends Controller
 {
     public function index($request, $response)
     {
-      $user = User::find(1) ->get();
+      $user = Locals::get();
       $this->app->result->data = $user;
 
       $this->app->result->render($response, 200);
