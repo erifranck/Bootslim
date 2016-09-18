@@ -44,6 +44,8 @@ $app->put('/api/user/update/{id}', 'AuthController:update');
 * -----------------------
 * -----------------------
 */
+$app->post('/api/locals/create', 'LocalsController:create');
+$app->patch('/api/locals/update', 'LocalsController:update');
 
 
 /*
@@ -54,4 +56,5 @@ $app->put('/api/user/update/{id}', 'AuthController:update');
 * -----------------------
 */
 
-$app->get('/locals', 'LocalsController:index');
+$app->get('/api/locals', 'LocalsController:getLocals');
+$app->get('/', 'LocalsController:index');

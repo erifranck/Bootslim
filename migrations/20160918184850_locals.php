@@ -31,7 +31,8 @@ class Locals extends Migration
         $this->schema->create('Locals', function(Illuminate\Database\Schema\Blueprint $table){
             $table->increments('id');
             $table->string('slug');
-            $table->string('nombre')->unique();
+            $table->string('image');
+            $table->string('name')->unique();
             $table->boolean('status');
             $table->string('phone');
             $table->string('address');

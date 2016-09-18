@@ -14,7 +14,8 @@
         "tuupola/slim-jwt-auth": "^2.3",
         "entomb/slim-json-api": "^1.2",
         "cristianp6/slim-json-api-helper": "^2.0",
-        "respect/validation": "^1.1"
+        "respect/validation": "^1.1",
+        "endyjasmi/cuid": "^2.0"
     },
     "autoload": {
 

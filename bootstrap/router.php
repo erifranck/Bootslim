@@ -67,6 +67,10 @@ $container['view'] = function ($container) {
   return $view;
 };
 
+$container['uid'] = function ($container){
+    return new EndyJasmi\Cuid;
+};
+
 $container['validator'] = function ($container) {
 
   return new App\Validation\Validatior;
