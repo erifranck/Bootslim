@@ -18,9 +18,9 @@ class AuthController extends Controller
 
     public function create($request, $response)
     {
-      User::Create([
+      $result = User::Create([
 
-        'username' => $resquest->getParams('username'),
+        'username' => $resquest->getParams('email'),
         'password' => $request->getParams('password'),
         'lastname' => $resquest->getParams('lastname'),
         'firstname' => $resquest->getParams('firstname'),
@@ -28,7 +28,8 @@ class AuthController extends Controller
         'phone' => $request->getParams('phone'),
 
       ]);
-
+      $this->app->result->data = $result;
+      $this->app->result->render($response, 200);
     }
     public function update($request, $response)
     {

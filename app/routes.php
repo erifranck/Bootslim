@@ -44,6 +44,7 @@ $app->put('/api/user/update/{id}', 'AuthController:update');
 * -----------------------
 * -----------------------
 */
+
 $app->post('/api/locals/create', 'LocalsController:create');
 $app->patch('/api/locals/update', 'LocalsController:update');
 
