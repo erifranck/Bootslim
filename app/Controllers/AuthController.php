@@ -24,6 +24,7 @@ class AuthController extends Controller
         'fullname' => $resquest->getParams('fullname'),
         'email' => $request->getParams('email'),
         'phone' => $request->getParams('phone'),
+        'address' => $request->getParams('address'),
 
       ]);
 
