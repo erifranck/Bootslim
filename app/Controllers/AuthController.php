@@ -10,8 +10,10 @@ class AuthController extends Controller
 {
     public function index($request, $response)
     {
+      $user = User::find(1) ->get();
+      $this->app->result->data = $user;
 
-      return $this->view->render($response, 'Auth/login.twig');
+      $this->app->result->render($response, 200);
 
     }
 
@@ -61,18 +63,5 @@ class AuthController extends Controller
         'saludo' => 'bienvenido a mi api'
       ];
       $this->app->result->render($response, 200);
-    }
-    public function delete($request, $response)
-    {
-      User::where('id','variable' )([
-
-        'name' => 'variable',
-        'password' => 'variable',
-        'email' => 'variable',
-        'phone' => 'variable',
-        'address' => 'variable',
-
-      ]);
-
     }
 }

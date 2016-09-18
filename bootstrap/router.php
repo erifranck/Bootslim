@@ -16,7 +16,7 @@ $app = new \Slim\App([
 
        'password' => DB_PASSWORD,
 
-       'charset' => DB_PORT,
+       'charset' => 'utf8',
 
        'collation' => 'utf8_unicode_ci',
 

@@ -2,6 +2,20 @@
 
 /*
 * -----------------------
+* --------CORS-----------
+* -----------------------
+*/
+
+$app->add(function ($req, $res, $next) {
+    $response = $next($req, $res);
+    return $response
+            ->withHeader('Access-Control-Allow-Origin', '*')
+            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+});
+
+/*
+* -----------------------
 * -----------------------
 * -----Login Routes------
 * -----------------------
@@ -20,14 +34,9 @@ $app->post('/api/logout', 'AuthController:logout');
 
 // request
 
-$app->get('/api/user/{id}', 'AuthController:getUsers');
-
 $app->post('/api/user/create', 'AuthController:create');
 
 $app->put('/api/user/update/{id}', 'AuthController:update');
-
-$app->delete('/api/user/delete/{id}', 'AuthController:delete');
-
 
 /*
 * -----------------------
@@ -45,5 +54,4 @@ $app->delete('/api/user/delete/{id}', 'AuthController:delete');
 * -----------------------
 * -----------------------
 */
-
 
