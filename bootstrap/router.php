@@ -6,18 +6,17 @@ $app = new \Slim\App([
      'displayErrorDetails' => true,
 
      'db' => [
-
        'driver' => 'mysql',
 
-       'host' => 'localhost',
+       'host' => DB_HOST,
 
-       'database' => 'restaurante',
+       'database' => DB_NAME,
 
-       'username' => 'root',
+       'username' => DB_USER,
 
-       'password' => '123',
+       'password' => DB_PASSWORD,
 
-       'charset' => 'utf8',
+       'charset' => DB_PORT,
 
        'collation' => 'utf8_unicode_ci',
 
@@ -34,7 +33,17 @@ $jsonApiHelper->registerErrorHandlers();
 $app->add(new \Slim\Middleware\JwtAuthentication([
     "attribute" => "jwt",
     "path" => "/api", /* or ["/api", "/admin"] */
-    "secret" => "supersecretkeyyoushouldnotcommittogithub"
+    "secret" => "supersecretkeyyoushouldnotcommittogithub",
+    "callback" => function ($request, $response, $arguments) use ($container) {
+        $container["jwt"] = $arguments["decoded"];
+    },
+    "error" => function ($request, $response, $arguments) {
+        $data["status"] = "error";
+        $data["message"] = $arguments["message"];
+        return $response
+            ->withHeader("Content-Type", "application/json")
+            ->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
+    }
 ]));
 
 $container = $app -> getContainer();

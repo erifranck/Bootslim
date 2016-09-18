@@ -14,7 +14,7 @@ $app->get('/signUp', 'AuthController:getCreate');
 
 //login ajax
 
-$app->post('/api/auth',  'AuthController:signIn');
+$app->get('/api/auth',  'AuthController:signIn');
 
 $app->post('/api/logout', 'AuthController:logout');
 

@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title> Conoditalia</title>
-  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="{{ base_url() }}/public/static/css/styles.css">
 </head>
 <body>
   {% include 'templates/partials/navbar.twig' %}
   {% block content %}
+    <div class="container">
+    </div>
   {% endblock %}
 </body>
 </html>
