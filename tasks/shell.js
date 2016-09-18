@@ -5,7 +5,7 @@ export default (gulp, $) => {
   );
   gulp.task('mkMigration',() =>
     gulp.src('')
-      .pipe($.shell(`php vendor/bin/phinx create ${process.argv} -c config-phinx.php ` ))
+      .pipe($.shell(`php vendor/bin/phinx create ${process.argv.a} -c config-phinx.php ` ))
   );
   gulp.task('mg', ['migrate', 'mkMigration'])
 }

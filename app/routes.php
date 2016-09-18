@@ -33,7 +33,7 @@ $app->post('/api/logout', 'AuthController:logout');
 
 // request
 
-$app->post('/api/user/create', 'AuthController:create');
+$app->post('/api/user/register', 'AuthController:create');
 
 $app->put('/api/user/update/{id}', 'AuthController:update');
 
