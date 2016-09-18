@@ -34,7 +34,7 @@ class Users extends Migration
             $table->string('lastname');
             $table->string('firstname');
             $table->string('email')->unique();
-            $table->integer('phone');
+            $table->string('phone');
             $table->timestamps();
         });
 

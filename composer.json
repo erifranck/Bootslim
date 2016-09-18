@@ -13,7 +13,8 @@
         "slim/twig-view": "^2.1",
         "tuupola/slim-jwt-auth": "^2.3",
         "entomb/slim-json-api": "^1.2",
-        "cristianp6/slim-json-api-helper": "^2.0"
+        "cristianp6/slim-json-api-helper": "^2.0",
+        "respect/validation": "^1.1"
     },
     "autoload": {
 

@@ -10,11 +10,10 @@ class AuthController extends Controller
 {
     public function index($request, $response)
     {
-      $user = User::find(1) ->get();
+      $user = User::where('id', 1)->get();
       $this->app->result->data = $user;
 
-      $this->app->result->render($response, 200);
-
+      return $this->view->render($response, 'Auth/login.twig');
     }
 
     public function create($request, $response)
@@ -23,10 +22,10 @@ class AuthController extends Controller
 
         'username' => $resquest->getParams('username'),
         'password' => $request->getParams('password'),
-        'fullname' => $resquest->getParams('fullname'),
+        'lastname' => $resquest->getParams('lastname'),
+        'firstname' => $resquest->getParams('firstname'),
         'email' => $request->getParams('email'),
         'phone' => $request->getParams('phone'),
-        'address' => $request->getParams('address'),
 
       ]);
 

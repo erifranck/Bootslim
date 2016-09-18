@@ -29,4 +29,22 @@ class Locals extends Migration
     {
 
     }
+
+
+    public function up(){
+
+        $this->schema->create('Locals', function(Illuminate\Database\Schema\Blueprint $table){
+            $table->increments('id');
+            $table->string('slug');
+            $table->string('nombre')->unique();
+            $table->boolean('status');
+            $table->string('phone');
+            $table->string('address');
+            $table->timestamps();
+        });
+
+    }
+    public function down(){
+         $this->schema->drop('Locals');
+    }
 }
