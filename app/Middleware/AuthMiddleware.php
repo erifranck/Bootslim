@@ -6,13 +6,15 @@
  *--------------------------------------------------------
  *--------------------------------------------------------
  */
+use App\Models\User;
+
 
 $app->add(new \Slim\Middleware\JwtAuthentication([
     "path" => [ "./api/"],
     "environment" => "HTTP_X_TOKEN",
     "attribute" => "jwt",
     "header" => "X-Token",
-    "passthrough" => [],
+    "passthrough" => ["./api/auth"],
     "secret" => "supersecretkeyyoushouldnotcommittogithub",
     "callback" => function ($request, $response, $arguments) use ($container) {
         $container["jwt"] = $arguments["decoded"];
@@ -28,11 +30,15 @@ $app->add(new \Slim\Middleware\JwtAuthentication([
 
 $app->add(new \Slim\Middleware\HttpBasicAuthentication([
     "path" => "./api/auth",
-    "users" => [
-        "root" => "t00r",
-        "somebody" => "passw0rd"
-    ],
-    "callback" => function ($request, $response, $arguments) {
-        print_r($arguments);
+    "authenticator" => function ($arguments) {
+        $user = User::where('username', $arguments['user'])->first();
+        $pass = md5($user->password);
+        return  $pass === $arguments['password'];
+    },
+    "error" => function ($request, $response, $arguments) {
+        $data = [];
+        $data["status"] = "error";
+        $data["message"] = $arguments["message"];
+        return $response->write(json_encode($data, JSON_UNESCAPED_SLASHES));
     }
 ]));

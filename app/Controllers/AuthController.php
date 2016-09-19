@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Models\User;
 use Slim\Views\Twig as View;
 use JsonApiHelper\Renderer;
+use \Firebase\JWT\JWT;
+use ICanBoogie\DateTime;
 
 class AuthController extends Controller
 {
@@ -59,10 +61,22 @@ class AuthController extends Controller
     }
     public function signIn($request,$response, $args)
     {
-      $jwt = $this->jwt;
-      $this->app->result->data = [
-        'token' => $jwt
+      $now = new DateTime();
+      $future = new DateTime("now +24 hours");
+      $server = $request->getServerParams();
+      $payload = [
+          "iat" => $now->getTimeStamp(),
+          "exp" => $future->getTimeStamp(),
+          "sub" => $server["PHP_AUTH_USER"],
+          "data" => User::where('username', $server['PHP_AUTH_USER'])->first(),
       ];
-      $this->app->result->render($response, 200);
+      $secret = "supersecretkeyyoushouldnotcommittogithub";
+      $token = JWT::encode($payload, $secret, "HS256");
+      $data["status"] = "ok";
+      $data["token"] = $token;
+
+      return $response->withStatus(201)
+          ->withHeader("Content-Type", "application/json")
+          ->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
     }
 }

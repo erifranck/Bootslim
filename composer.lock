@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "92653c8cd7763764dbef88ce8584cbfb",
-    "content-hash": "04ae3abaeca48d37dc9aaa6bd0ed330b",
+    "hash": "cb6b4cbb4309ba89dd86b8286ef2dd07",
+    "content-hash": "5e4755f51590507477c3bde7d3778248",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -291,6 +291,56 @@
             "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
             "homepage": "https://github.com/firebase/php-jwt",
             "time": "2016-07-18 04:51:16"
+        },
+        {
+            "name": "icanboogie/datetime",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ICanBoogie/DateTime.git",
+                "reference": "16314ad8b8bbd9a166ea6917d916fbbb6acbf229"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ICanBoogie/DateTime/zipball/16314ad8b8bbd9a166ea6917d916fbbb6acbf229",
+                "reference": "16314ad8b8bbd9a166ea6917d916fbbb6acbf229",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "icanboogie/common": "~1.2"
+            },
+            "suggest": {
+                "icanboogie/common": "Allows finer exceptions to be thrown"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Olivier Laviale",
+                    "email": "olivier.laviale@gmail.com",
+                    "homepage": "http://www.weirdog.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Extends the features of PHP DateTime and DateTimeZone",
+            "homepage": "http://icanboogie.org/",
+            "keywords": [
+                "date",
+                "time",
+                "timezone"
+            ],
+            "time": "2015-12-22 09:22:17"
         },
         {
             "name": "illuminate/container",
