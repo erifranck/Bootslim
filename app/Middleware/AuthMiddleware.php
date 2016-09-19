@@ -11,10 +11,11 @@ use App\Models\User;
 
 $app->add(new \Slim\Middleware\JwtAuthentication([
     "path" => [ "./api/"],
-    "environment" => "HTTP_X_TOKEN",
     "attribute" => "jwt",
     "header" => "X-Token",
-    "passthrough" => ["./api/auth"],
+    "secure" => false,
+    "relaxed" => ["http://localhost:8080"],
+    "passthrough" => ["./api/auth", "./api/user/register"],
     "secret" => "supersecretkeyyoushouldnotcommittogithub",
     "callback" => function ($request, $response, $arguments) use ($container) {
         $container["jwt"] = $arguments["decoded"];
@@ -29,11 +30,13 @@ $app->add(new \Slim\Middleware\JwtAuthentication([
 ]));
 
 $app->add(new \Slim\Middleware\HttpBasicAuthentication([
-    "path" => "./api/auth",
+    "path" => "/api/auth",
+    "secure" => false,
+    "relaxed" => ["http://localhost:8080"],
     "authenticator" => function ($arguments) {
-        $user = User::where('username', $arguments['user'])->first();
-        $pass = md5($user->password);
-        return  $pass === $arguments['password'];
+        $user = User::where('username', $arguments['email'])->first();
+        $pass = ($arguments['password']);
+        return  $pass == $user['password'];
     },
     "error" => function ($request, $response, $arguments) {
         $data = [];

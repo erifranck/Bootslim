@@ -64,11 +64,13 @@ class AuthController extends Controller
       $now = new DateTime();
       $future = new DateTime("now +24 hours");
       $server = $request->getServerParams();
+      $query = isset($server['PHP_AUTH_USER']) ? $server['PHP_AUTH_USER']: $request->getParam('email');
+      $userdata = User::where('username', $query)->first();
       $payload = [
           "iat" => $now->getTimeStamp(),
           "exp" => $future->getTimeStamp(),
-          "sub" => $server["PHP_AUTH_USER"],
-          "data" => User::where('username', $server['PHP_AUTH_USER'])->first(),
+          "sub" => $query,
+          "data" => $userdata,
       ];
       $secret = "supersecretkeyyoushouldnotcommittogithub";
       $token = JWT::encode($payload, $secret, "HS256");
