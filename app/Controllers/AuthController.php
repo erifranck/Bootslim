@@ -23,7 +23,7 @@ class AuthController extends Controller
       $result = User::create([
 
         'username' => $request->getParam('email'),
-        'password' => md5($request->getParam('password')),
+        'password' => ($request->getParam('password')),
         'lastname' => $request->getParam('lastname'),
         'firstname' => $request->getParam('firstname'),
         'email' => $request->getParam('email'),
