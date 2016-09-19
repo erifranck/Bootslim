@@ -27,13 +27,13 @@ class LocalsController extends Controller
 
     public function create($request, $response)
     {
-      $uid = $this->uid->slug();
+      $uid = $this->app->uid->slug();
       Locals::Create([
 
-        'name' => $resquest->getParams('name'),
-        'address' => $request->getParams('address'),
-        'phone' => $resquest->getParams('phone'),
-        'status' => $resquest->getParams('status'),
+        'name' => $request->getParam('name'),
+        'address' => $request->getParam('address'),
+        'phone' => $request->getParam('phone'),
+        'status' => $request->getParam('status'),
         'slug' => $uid,
 
       ]);

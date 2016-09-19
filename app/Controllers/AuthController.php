@@ -18,14 +18,14 @@ class AuthController extends Controller
 
     public function create($request, $response)
     {
-      $result = User::Create([
+      $result = User::create([
 
-        'username' => $resquest->getParams('email'),
-        'password' => $request->getParams('password'),
-        'lastname' => $resquest->getParams('lastname'),
-        'firstname' => $resquest->getParams('firstname'),
-        'email' => $request->getParams('email'),
-        'phone' => $request->getParams('phone'),
+        'username' => $request->getParam('email'),
+        'password' => md5($request->getParam('password')),
+        'lastname' => $request->getParam('lastname'),
+        'firstname' => $request->getParam('firstname'),
+        'email' => $request->getParam('email'),
+        'phone' => $request->getParam('phone'),
 
       ]);
       $this->app->result->data = $result;
@@ -59,8 +59,9 @@ class AuthController extends Controller
     }
     public function signIn($request,$response, $args)
     {
+      $jwt = $this->jwt;
       $this->app->result->data = [
-        'saludo' => 'bienvenido a mi api'
+        'token' => $jwt
       ];
       $this->app->result->render($response, 200);
     }
