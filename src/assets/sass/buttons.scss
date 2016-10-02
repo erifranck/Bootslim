@@ -1,15 +1,25 @@
-@import 'colors.scss';
+@import "colors.scss";
+@import 'bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/_buttons.scss';
 
-.menu-container{
+.menu-container {
   width: 50px;
   padding: 5px;
   padding-top: 10px;
   float: left;
 }
-.icon-bar{
+
+.icon-bar {
   height: 5px;
   width: 100%;
   margin: 4px;
   float: left;
   background-color: $scarlet;
+}
+
+.btn- {
+  &elegant {
+    @include button-variant($red, white, white);
+    border: 1px solid $cloud;
+    padding: 5px;
+  }
 }

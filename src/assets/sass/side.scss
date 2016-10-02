@@ -1,0 +1,36 @@
+@import "colors.scss";
+.side {
+    &-container{
+      margin-top: 60px;
+      width: 40%;
+      height: calc( 100% - 60px);
+      background-color: $turquoside;
+      padding: 20px;
+    }
+    &-layout{
+      //display: none;
+      z-index: 100000;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    &-menu{
+        &-header{
+
+        }
+        &-body{
+
+        }
+        &-item{
+          display: block;
+        }
+        &-list{
+
+        }
+        &-icon{
+
+        }
+    }
+}
