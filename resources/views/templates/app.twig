@@ -7,9 +7,11 @@
 </head>
 <body>
   {% include 'templates/partials/navbar.twig' %}
+  {% include 'templates/partials/side.twig' %}
   {% block content %}
-    <div class="container">
-    </div>
   {% endblock %}
+  {% include 'templates/partials/footer.twig' %}
+  <script rel="stylesheet" src="{{ base_url() }}/public/static/js/main.js"> </script>
+  <script rel="stylesheet" src="{{ base_url() }}/public/static/js/importer.js"> </script>
 </body>
 </html>

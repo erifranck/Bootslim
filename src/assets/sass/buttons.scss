@@ -1,0 +1,15 @@
+@import 'colors.scss';
+
+.menu-container{
+  width: 50px;
+  padding: 5px;
+  padding-top: 10px;
+  float: left;
+}
+.icon-bar{
+  height: 5px;
+  width: 100%;
+  margin: 4px;
+  float: left;
+  background-color: $scarlet;
+}
